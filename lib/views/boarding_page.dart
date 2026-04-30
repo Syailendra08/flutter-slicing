@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tech_shop/views/signup_page.dart';
 import 'package:tech_shop/widgets/button.dart';
 
 class BoardingPage extends StatelessWidget {
@@ -55,7 +56,11 @@ class BoardingPage extends StatelessWidget {
               CustomButton(
                 textButton: "Get Started",
                 onPressed: () {
-                 
+                 Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>
+                  SignupPage()),
+                );
                 },
               )
             ],
