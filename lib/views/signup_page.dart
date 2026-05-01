@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tech_shop/widgets/button.dart';
+import 'package:tech_shop/widgets/form.dart';
 class SignupPage extends StatelessWidget {
   const SignupPage({super.key});
 
@@ -14,9 +15,9 @@ class SignupPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               SizedBox(height: 30),
+               SizedBox(height: 80),
 
-              // Title
+              
               Center(
                 child: RichText(
                   text: TextSpan(
@@ -24,7 +25,7 @@ class SignupPage extends StatelessWidget {
                       TextSpan(
                         text: "Tech",
                         style: GoogleFonts.poppins(
-                          fontSize: 28,
+                          fontSize: 35,
                           fontWeight: FontWeight.w600,
                           color: Colors.grey,
                         ),
@@ -32,7 +33,7 @@ class SignupPage extends StatelessWidget {
                       TextSpan(
                         text: "Shop",
                         style: GoogleFonts.poppins(
-                          fontSize: 28,
+                          fontSize: 35,
                           fontWeight: FontWeight.w600,
                           color: Colors.black,
                         ),
@@ -42,28 +43,30 @@ class SignupPage extends StatelessWidget {
                 ),
               ),
 
-               SizedBox(height: 30),
+                 SizedBox(height: 30),
 
-              // Form Fields
+           
               buildLabel("Full name"),
-              buildInput(),
+              FormTextarea(),
 
               buildLabel("Email"),
-              buildInput(),
+              FormTextarea(),
 
               buildLabel("Username"),
-              buildInput(),
+              FormTextarea(),
 
               buildLabel("Password"),
-              buildInput(isPassword: true),
+              FormTextarea(
+                isPassword: true,
+              ),
 
-               SizedBox(height: 30),
+              SizedBox(height: 10),
 
-              // Button (pakai CustomButton kamu)
+          
               CustomButton(
                 textButton: "Sign Up",
                 onPressed: () {
-                  
+                 
                 },
               ),
             ],
@@ -73,41 +76,15 @@ class SignupPage extends StatelessWidget {
     );
   }
 
-  // Label Text
+  
   Widget buildLabel(String text) {
     return Padding(
-      padding:  EdgeInsets.only(bottom: 6),
+      padding: EdgeInsets.only(bottom: 6),
       child: Text(
         text,
         style: GoogleFonts.poppins(
           fontSize: 13,
           color: Colors.black54,
-        ),
-      ),
-    );
-  }
-
-  // Input Field (modif dari FormTextarea kamu)
-  Widget buildInput({bool isPassword = false}) {
-    return Container(
-      width: double.infinity,
-      margin:  EdgeInsets.only(bottom: 16),
-      padding:  EdgeInsets.symmetric(horizontal: 16),
-      decoration: BoxDecoration(
-        color:  Color(0xFFB0C4CF),
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.2),
-            blurRadius: 8,
-            offset:  Offset(0, 4),
-          ),
-        ],
-      ),
-      child: TextField(
-        obscureText: isPassword,
-        decoration:  InputDecoration(
-          border: InputBorder.none,
         ),
       ),
     );
