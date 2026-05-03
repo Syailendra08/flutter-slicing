@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tech_shop/views/home_page.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -22,7 +23,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return Scaffold(
       body: Stack(
         children: [
-         
           PageView.builder(
             controller: _controller,
             itemCount: images.length,
@@ -33,27 +33,21 @@ class _OnboardingPageState extends State<OnboardingPage> {
               return Stack(
                 fit: StackFit.expand,
                 children: [
-                
-                  Image.network(
-                    images[index],
-                    fit: BoxFit.cover,
-                  ),
+                  Image.network(images[index], fit: BoxFit.cover),
 
-              
                   Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          Colors.black.withValues(alpha:  0.3),
+                          Colors.black.withValues(alpha: 0.3),
                           Colors.black.withValues(alpha: 0.7),
                         ],
                       ),
                     ),
                   ),
 
-             
                   Positioned(
                     top: 120,
                     left: 20,
@@ -72,10 +66,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         SizedBox(height: 10),
                         Text(
                           "Browse the newest gadgets and innovations all in one place.",
-                          style: TextStyle(
-                            color: Colors.white70,
-                            fontSize: 14,
-                          ),
+                          style: TextStyle(color: Colors.white70, fontSize: 14),
                         ),
                       ],
                     ),
@@ -85,24 +76,18 @@ class _OnboardingPageState extends State<OnboardingPage> {
             },
           ),
 
-        
           Positioned(
             top: 50,
             right: 20,
-            child: Text(
-              "Skip",
-              style: TextStyle(color: Colors.white),
-            ),
+            child: Text("Skip", style: TextStyle(color: Colors.white)),
           ),
 
-        
           Positioned(
             bottom: 40,
             left: 20,
             right: 20,
             child: Column(
               children: [
-    
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
@@ -123,7 +108,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
                 SizedBox(height: 20),
 
-        
                 SizedBox(
                   width: double.infinity,
                   height: 50,
@@ -134,6 +118,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           duration: Duration(milliseconds: 300),
                           curve: Curves.easeInOut,
                         );
+                      } else {
+                        // pindah ke HomePage
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePage()),
+                        );
                       }
                     },
                     style: ElevatedButton.styleFrom(
@@ -142,8 +132,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    child: Text("Next",
-                    style: TextStyle(color: Colors.white),),
+                    child: Text("Next", style: TextStyle(color: Colors.white)),
                   ),
                 ),
               ],
