@@ -54,7 +54,7 @@ class BoardingPage extends StatelessWidget {
 
             
               CustomButton(
-                textButton: "Get Started",
+                text: "Get Started",
                 onPressed: () {
                  Navigator.push(
                   context,

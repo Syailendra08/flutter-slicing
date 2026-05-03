@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tech_shop/views/login_page.dart';
 import 'package:tech_shop/widgets/button.dart';
 import 'package:tech_shop/widgets/form.dart';
 class SignupPage extends StatelessWidget {
@@ -64,9 +65,11 @@ class SignupPage extends StatelessWidget {
 
           
               CustomButton(
-                textButton: "Sign Up",
+                text: "Sign Up",
                 onPressed: () {
-                 
+                 Navigator.push(context,  MaterialPageRoute(builder: (context) =>
+                  LoginPage()),
+                 );
                 },
               ),
             ],
